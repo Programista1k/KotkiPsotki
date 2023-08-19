@@ -15,13 +15,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.catService.getRandomFacts(9).subscribe((facts) => {
-      this.randomFacts = [...this.randomFacts, ...facts.data];
+      this.randomFacts.push(...facts.data);
     })
   }
 
   downloadMore(): void {
     this.catService.getRandomFacts(9).pipe(map((facts) => facts.data.filter(catFact => !this.randomFacts.includes(catFact)))).subscribe((facts) => {
-      this.randomFacts = [...facts, ...this.randomFacts];
+      this.randomFacts.push(...facts);
     })
   }
 
