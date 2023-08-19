@@ -1,5 +1,13 @@
-<div class="flex flex-col gap-4 px-6 py-8 border-2 border-white rounded-md">
-    <input type="text" placeholder="Nazwa użytkownika" class="bg-transparent border border-white border-opacity-50 text-white rounded-md px-4 py-2 focus:border-opacity-100">
-    <input type="password" placeholder="Hasło"  class="bg-transparent border text-white border-white border-opacity-50 rounded-md px-4 py-2 focus:border-opacity-100">
-    <button (click)="login()" class="px-4 py-2 bg-green-600 hover:scale-90 cursor-pointer transition-transform text-white font-medium rounded-md">Zaloguj Się</button>
+<div class="flex w-screen h-screen">
+    <div class="flex lg:w-1/2 w-full justify-center items-center bg-gray-100">
+        <div class="flex flex-col items-center justify-center bg-white gap-5 min-w-[380px] min-h-[400px] px-5 py-10 shadow-lg border border-black border-opacity-5 rounded-lg">
+            <h1 class="text-xl font-light">Logowanie</h1>
+            <input type="text" placeholder="Nazwa użytkownika" class="bg-transparent border border-black border-opacity-5 shadow-lg text-black rounded-md px-4 py-2 ">
+            <input type="password" placeholder="Hasło"  class="bg-transparent border text-black border-black border-opacity-5 shadow-lg rounded-md px-4 py-2">
+            <button (click)="login()" class="px-4 py-1.5 bg-green-600 hover:scale-90 cursor-pointer transition-transform text-white text-sm font-medium rounded-md">Zaloguj Się</button>
+        </div>
+    </div>
+    <div class=" hidden lg:flex flex-col w-1/2 justify-center items-center ">
+        <img src="https://w0.peakpx.com/wallpaper/205/277/HD-wallpaper-shining-cat-cat-dark-glow-kitten-neon.jpg" class="w-full h-full object-cover">
+    </div>
 </div>
