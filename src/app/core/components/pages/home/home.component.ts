@@ -14,9 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private catService: CatService) {}
 
   ngOnInit(): void {
-    this.catService.getRandomFacts(9).subscribe((facts) => {
-      this.randomFacts.push(...facts.data);
-    })
+    this.catService.getRandomFacts(9).subscribe((facts) => this.randomFacts.push(...facts.data))
   }
 
   downloadMore(): void {
