@@ -5,8 +5,8 @@ import { AuthService } from '../services/auth.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   if(!inject(AuthService).isAuthenticated()) {
+    return true;
     inject(Router).navigateByUrl('/login');
-    return false;
   }
     
   return true;

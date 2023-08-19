@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { filter, map } from 'rxjs';
 import { CatService } from 'src/app/core/services/cat.service';
 
 @Component({
@@ -13,8 +14,17 @@ export class HomeComponent implements OnInit {
   constructor(private catService: CatService) {}
 
   ngOnInit(): void {
-    this.catService.getRandomFacts().subscribe((facts) => {
-      this.randomFacts = facts.data;
+    this.catService.getRandomFacts(9).subscribe((facts) => {
+      this.randomFacts = [...this.randomFacts, ...facts.data];
+    })
+  }
+
+  downloadMore(): void {
+    this.catService.getRandomFacts(9).pipe(map((facts) => {
+      return facts.data.filter(catFact => {
+      return !this.randomFacts.includes(catFact)})
+    })).subscribe((facts) => {
+      this.randomFacts = [...facts, ...this.randomFacts];
     })
   }
 
