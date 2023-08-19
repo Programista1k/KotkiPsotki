@@ -20,10 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   downloadMore(): void {
-    this.catService.getRandomFacts(9).pipe(map((facts) => {
-      return facts.data.filter(catFact => {
-      return !this.randomFacts.includes(catFact)})
-    })).subscribe((facts) => {
+    this.catService.getRandomFacts(9).pipe(map((facts) => facts.data.filter(catFact => !this.randomFacts.includes(catFact)))).subscribe((facts) => {
       this.randomFacts = [...facts, ...this.randomFacts];
     })
   }
